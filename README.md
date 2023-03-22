@@ -1,18 +1,20 @@
-:: startup
+:: startup ::
 
 run `cargo run {id}` to initialize the template submission file of "question #id".
 
 run `cargo test test_{id}` to test the solution for "question #id".
 
-:: progress
+:: progress ::
 
 start again from scratch
 
-| Number | Question | Level | Link                                                                      | Date Finished |
-| ------ | -------- | ----- | ------------------------------------------------------------------------- | ------------- |
-| 1      | Two Sum  | Easy  | [Link](https://github.com/LeVuMinhHuy/canada/src/problem/p001_two_sum.rs) | 23-03-2023    |
+| Number                                                                             | Question | Level | Date Finished |
+| ---------------------------------------------------------------------------------- | -------- | ----- | ------------- |
+| [1](https://github.com/LeVuMinhHuy/canada/blob/main/src/solution/p0001_two_sum.rs) | Two Sum  | Easy  | 23-03-2023    |
 
-:: todo
+:: credit ::
 
-- [ ] update `test` to `nexttest`
-- [ ] gen solution to more condensed version
+- template: https://github.com/aylei/leetcode-rust
+- leetcode
+- chatgpt
+- copilot
