@@ -7,6 +7,8 @@ function move_files() {
     done
 
     cat src/problem/mod.rs >> src/solution/mod.rs
+
+    echo -n "" > src/problem/mod.rs
     
     if [ -n "$files" ]; then 
       echo "https://github.com/LeVuMinhHuy/canada/blob/main/src/solution/$files"
