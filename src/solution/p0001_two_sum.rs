@@ -41,17 +41,13 @@ pub struct Solution {}
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        // loop through vector nums and calculate target - nums[i]
-        // store target - nums[i] and i in a hashmap
-        // if target - nums[i] is in the hashmap, return the index of target - nums[i] and i
-        // otherwise, continue the loop
-        // if the loop ends, return a
-        let mut map = std::collections::HashMap::new();
+        let mut hash_map = std::collections::HashMap::new();
+
         for (i, num) in nums.iter().enumerate() {
-            if map.contains_key(num) {
-                return vec![*map.get(num).unwrap() as i32, i as i32];
+            if (hash_map.contains_key(num)) {
+                return vec![*hash_map.get(num).unwrap() as i32, i as i32];
             } else {
-                map.insert(target - num, i);
+                hash_map.insert(target - num, i);
             }
         }
 
