@@ -38,21 +38,28 @@ pub struct Solution {}
 
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
-        let mut max_len = 0;
+        let mut map = std::collections::HashMap::new();
+
         let mut start = 0;
-        let mut end = 0;
-        let mut char_map = [0; 256];
-        for c in s.chars() {
-            let idx = c as usize;
-            if char_map[idx] > 0 {
-                start = std::cmp::max(start, char_map[idx]);
+        let mut max_length = 0;
+
+        for (i, c) in s.chars().enumerate() {
+            if let Some(j) = map.get(&c).cloned() {
+                // need update start to j + 1 instead of i
+                // because we don't want to skip some characters that before the repeated char
+                // e.g. "abace"
+                // when we reach the second 'a', we need to update start to 2 instead of 3
+                // otherwise, we will miss the 'b' in the substring "bace"
+                start = start.max(j + 1);
             }
-            end += 1;
-            char_map[idx] = end;
-            max_len = std::cmp::max(max_len, end - start);
+
+            // we need plus 1 because it's so obvious
+            max_length = max_length.max(i - start + 1);
+
+            map.insert(c, i);
         }
 
-        max_len as i32
+        max_length as i32
     }
 }
 
